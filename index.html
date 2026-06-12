@@ -520,6 +520,120 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* REAL SCANS / EVIDENCE */
+  .evidence-intro {
+    margin-top: 28px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(240,244,248,0.5);
+    max-width: 560px;
+  }
+  .evidence-grid {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .ev-tile {
+    border: 1px solid rgba(0,229,255,0.08);
+    padding: 32px 28px;
+    transition: border-color 0.3s;
+  }
+  .ev-tile:hover { border-color: rgba(0,229,255,0.25); }
+  .ev-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--cyan);
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+  .phone {
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 22px;
+    overflow: hidden;
+    background: #02060a;
+    box-shadow: 0 0 40px rgba(0,229,255,0.06);
+  }
+  .phone img { display: block; width: 100%; height: auto; }
+  .ev-cap {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(240,244,248,0.45);
+  }
+  /* recipe mock tile, in the site's own card idiom */
+  .meal-mock {
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 22px;
+    background: rgba(0,229,255,0.02);
+    padding: 24px 20px;
+  }
+  .meal-mock h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .pill {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid;
+  }
+  .pill-red   { color: #ff6b6b; border-color: rgba(255,107,107,0.5); }
+  .pill-green { color: #4ade80; border-color: rgba(74,222,128,0.5); }
+  .pill-cyan  { color: var(--cyan); border-color: rgba(0,229,255,0.4); }
+  .flag-card {
+    border: 1px solid rgba(255,107,107,0.35);
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: rgba(240,244,248,0.55);
+  }
+  .flag-card strong { color: #ff6b6b; font-weight: 500; letter-spacing: 0.05em; }
+  .swap-quote {
+    margin-top: 12px;
+    border-left: 2px solid #4ade80;
+    padding-left: 12px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: rgba(74,222,128,0.8);
+  }
+
+  /* B2B / TRUTH LAYER */
+  .b2b {
+    padding: 120px 8vw;
+    position: relative;
+    z-index: 1;
+    background: rgba(0,229,255,0.02);
+    border-top: 1px solid rgba(0,229,255,0.08);
+    border-bottom: 1px solid rgba(0,229,255,0.08);
+  }
+  .b2b p {
+    margin-top: 28px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(240,244,248,0.5);
+    max-width: 620px;
+  }
+  .b2b .btn-ghost {
+    margin-top: 40px;
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--cyan);
+    border: 1px solid rgba(0,229,255,0.4);
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .b2b .btn-ghost:hover { background: var(--cyan); color: var(--black); }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     .stats { grid-template-columns: 1fr; }
@@ -527,9 +641,13 @@
     .steps { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
     .truth-section { grid-template-columns: 1fr; gap: 40px; }
+    .evidence-grid { grid-template-columns: 1fr 1fr; }
     footer { flex-direction: column; gap: 24px; text-align: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
     .dna-spiral { display: none; }
+  }
+  @media (max-width: 520px) {
+    .evidence-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -602,8 +720,8 @@
     <div class="stat-label">Truth Framework</div>
   </div>
   <div class="stat">
-    <div class="stat-num">Live</div>
-    <div class="stat-label">Available on iOS Now</div>
+    <div class="stat-num">iOS</div>
+    <div class="stat-label">In Private Beta — Early Access Open</div>
   </div>
 </div>
 
@@ -643,6 +761,49 @@
   </div>
 </section>
 
+<!-- REAL SCANS -->
+<section class="section">
+  <div class="section-tag">// Real Scans</div>
+  <h2>Not a demo.<br>The actual app.</h2>
+  <p class="evidence-intro">
+    There is AI that reads the label. And there is AI that looks beyond them. Every screen below is a real scan of a real product — checked against your personal barriers, automatically. You don't have to ask. Just scan.
+  </p>
+  <div class="evidence-grid">
+    <div class="ev-tile">
+      <div class="ev-label">SCAN</div>
+      <div class="phone"><img src="assets/scan-bens-rice.jpg" alt="ProductDNA scan of Ben's Original Whole Grain Brown Rice scoring 67 out of 100" loading="lazy"></div>
+      <p class="ev-cap">A real shelf, a real photo, a verified score. Identified, scored, and logged to the venue where it was found.</p>
+    </div>
+    <div class="ev-tile">
+      <div class="ev-label">ASK</div>
+      <div class="phone"><img src="assets/ask-coffee.jpg" alt="Ask ProductDNA results ranking coffee options with Google Maps and Yelp ratings" loading="lazy"></div>
+      <p class="ev-cap">Ask in plain language. Ratings weighed by volume — 4.6 from 12,000 reviews outranks 5.0 from 3. Signal over noise.</p>
+    </div>
+    <div class="ev-tile">
+      <div class="ev-label">COOK</div>
+      <div class="meal-mock">
+        <h4>Leek, Bacon &amp; Pea Risotto</h4>
+        <div class="pill-row">
+          <span class="pill pill-red">1 FLAGGED</span>
+          <span class="pill pill-green">12 CLEAN</span>
+          <span class="pill pill-cyan">13 INGREDIENTS</span>
+        </div>
+        <div class="flag-card">
+          <strong>ARBORIO RICE — HIGH</strong><br>
+          Inorganic arsenic — IARC Group 1. The concern is chronic cumulative exposure, not a single serving.
+          <div class="swap-quote">Arborio cannot be substituted — it is the dish. Mitigation: 1–2 servings a week. The engine won't invent a swap that doesn't exist.</div>
+        </div>
+      </div>
+      <p class="ev-cap">Paste any recipe or URL. Every ingredient checked before you ever reach the store.</p>
+    </div>
+    <div class="ev-tile">
+      <div class="ev-label">REVIEW</div>
+      <div class="phone"><img src="assets/review-xingu.jpg" alt="ProductDNA review of Xingu Black Beer with photo and 71 out of 100 score" loading="lazy"></div>
+      <p class="ev-cap">Photograph it, score it, publish it. Barcode + photo + location — ground truth, captured at the shelf.</p>
+    </div>
+  </div>
+</section>
+
 <!-- TRUTH SCORE DEMO -->
 <section class="truth-section">
   <div>
@@ -653,6 +814,9 @@
     </p>
     <p style="margin-top:20px; font-size:13px; line-height:1.9; color:rgba(240,244,248,0.5); max-width:400px;">
       The 0=0 principle: truth must remain truth across every layer of abstraction.
+    </p>
+    <p style="margin-top:20px; font-size:13px; line-height:1.9; color:rgba(240,244,248,0.5); max-width:400px;">
+      And when something fails, ProductDNA doesn't just flag it — it resolves it. Every hazard is paired with a verified clean alternative. No paid placements. Ever.
     </p>
   </div>
   <div class="truth-card">
@@ -689,8 +853,8 @@
       <p>Food. Cosmetics. Electronics. Household goods. Clothing. If it has a barcode, ProductDNA can tell you what's actually in it — and what the label isn't telling you.</p>
     </div>
     <div class="why-item">
-      <h3>Verified. Not Crowdsourced.</h3>
-      <p>ProductDNA doesn't rely on user reviews or brand-submitted data. Intelligence is sourced, verified, and scored against a strict truth framework — so what you read is real.</p>
+      <h3>Verified. Not Hearsay.</h3>
+      <p>ProductDNA weighs evidence the way science does — peer-reviewed research, verified data, and real reviews by the thousands, never brand-submitted claims. What you read is real, and you can see where it came from.</p>
     </div>
     <div class="why-item">
       <h3>Built for the Point of Purchase.</h3>
@@ -701,6 +865,16 @@
       <p>ProductDNA is building the infrastructure for a world where supply chain transparency isn't a feature — it's the baseline. For consumers, retailers, and brands who mean it.</p>
     </div>
   </div>
+</section>
+
+<!-- TRUTH LAYER / B2B -->
+<section class="b2b">
+  <div class="section-tag">// For Platforms &amp; Retailers</div>
+  <h2 style="font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:800; letter-spacing:-0.02em; max-width:640px; line-height:1.1;">The Truth Layer for Global Commerce.</h2>
+  <p>
+    The next evolution of AI isn't smarter simulations — it's trustworthy intelligence. ProductDNA is built as infrastructure: traceability, ethics, AI-readable truth. The same engine behind every scan is licensable by the platforms the world already shops on.
+  </p>
+  <a class="btn-ghost" href="mailto:productdna@icloud.com?subject=ProductDNA%20—%20Partnership%20Inquiry">Talk to us →</a>
 </section>
 
 <!-- CTA FOOTER -->
@@ -716,11 +890,12 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">Product<span>DNA</span></div>
-  <p>© 2026 Panamera Network. All rights reserved.</p>
+  <p>© 2026 ProductDNA. All rights reserved. Know what's real.</p>
   <div class="footer-links">
-    <a href="https://instagram.com/ProductDNA">Instagram</a>
-    <a href="#">Privacy</a>
-    <a href="#">Contact</a>
+    <a href="https://instagram.com/ProductDNA" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/productdna/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/ProductDNA" target="_blank" rel="noopener">X</a>
+    <a href="mailto:productdna@icloud.com">Contact</a>
   </div>
 </footer>
 
